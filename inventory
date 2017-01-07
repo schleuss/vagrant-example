@@ -1,0 +1,9 @@
+controller ansible_connection=local
+nodeserver  ansible_ssh_host=192.168.56.2 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/webserver/virtualbox/private_key
+mongoserver ansible_ssh_host=192.168.56.2 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/webserver/virtualbox/private_key
+redisserver ansible_ssh_host=192.168.56.2 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/webserver/virtualbox/private_key
+
+[nodes]
+nodeserver
+mongoserver
+redisserver

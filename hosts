@@ -1,0 +1,10 @@
+[nodeserver]
+192.168.56.2
+
+[mongoserver]
+192.168.56.2
+
+[redisserver]
+192.168.56.2
+
+

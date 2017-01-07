@@ -1,0 +1,22 @@
+---
+# File: main.yml
+# Type: task
+# Part: Mongo
+
+- name: MongoDB | Check system
+  fail: msg="Only Ubuntu is supported"
+  when: ansible_distribution != 'Ubuntu' or ansible_distribution_major_version|int < 14
+
+## Install
+- include: install.yml
+
+## Configure
+- include: configure.yml
+
+## Configure service
+- include: configure-systemd.yml
+  when:  ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int >= 16
+
+## Check service
+- name: MongoDB | Check service daemon
+  service: name={{ mongodb_service }} state=started enabled=yes

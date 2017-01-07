@@ -1,0 +1,11 @@
+---
+# File: main.yml
+# Type: handler
+# Part: MongoDB
+
+- name: start mongod
+  service: name={{ mongodb_service }} state=started
+- name: reload mongod
+  service: name={{ mongodb_service }} state=reloaded
+- name: restart mongod
+  service: name={{ mongodb_service }} state=restarted
