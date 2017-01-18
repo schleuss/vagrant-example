@@ -1,5 +1,9 @@
 ---
 
+- locale_gen:
+    name: pt_BR.UTF-8
+    state: present
+
 - name: setup app
   shell: chdir=/app npm install --quiet --silent
 
@@ -12,5 +16,5 @@
   changed_when: false
 
 - name: "Start example Node.js app."
-  command: forever start /app/server.js
+  shell: service node-service start 
   when: "forever_list.stdout.find('/app/server.js') == -1"
